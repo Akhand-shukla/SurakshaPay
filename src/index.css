@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #fff9f1;
+  --color-parchment: #fbf3e8;
+  --color-emerald-deep: #064e3b;
+  --color-emerald-soft: #0b6b52;
+  --color-burnt: #f45b16;
+  --color-burnt-deep: #d94a0f;
+  --color-sage: #dcefe3;
+  --color-sage-soft: #ecf6f0;
+  --color-ink: #26332e;
+  --color-ink-soft: #55645d;
+  --color-sand: #e9e1d5;
+  --color-sand-deep: #d8ccba;
+  --color-rust: #b3401f;
+  --color-clay: #f8e7dd;
+
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(9px); opacity: 0.15; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.animate-scroll-wheel {
+  animation: scrollWheel 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-emerald-deep);
+}
+
+/* thin, quiet scrollbars — part of the ledger feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-deep);
+  border-radius: 8px;
+  border: 3px solid var(--color-ivory);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
